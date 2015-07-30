@@ -23,6 +23,10 @@
 		96CFD155168D308D00BAEEE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CFD154168D308D00BAEEE6 /* Default-568h@2x.png */; };
 		96CFD158168D308D00BAEEE6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CFD157168D308D00BAEEE6 /* ViewController.m */; };
 		96CFD163168D309800BAEEE6 /* ImageCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CFD162168D309800BAEEE6 /* ImageCropView.m */; };
+		C2AA0C811B69C85A006B3D71 /* EffectsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA0C801B69C85A006B3D71 /* EffectsView.m */; };
+		C2AA0C931B69D3DB006B3D71 /* UIImage+Filtrr.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA0C8E1B69D3DB006B3D71 /* UIImage+Filtrr.m */; };
+		C2AA0C941B69D3DB006B3D71 /* UIImage+FiltrrCompositions.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA0C911B69D3DB006B3D71 /* UIImage+FiltrrCompositions.m */; };
+		C2AA0C951B69D3DB006B3D71 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA0C921B69D3DB006B3D71 /* UIImage+Scale.m */; };
 		CE786DB61910477500800637 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE786DB51910477500800637 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,14 @@
 		96CFD157168D308D00BAEEE6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		96CFD161168D309800BAEEE6 /* ImageCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropView.h; sourceTree = "<group>"; };
 		96CFD162168D309800BAEEE6 /* ImageCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropView.m; sourceTree = "<group>"; };
+		C2AA0C7F1B69C847006B3D71 /* EffectsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EffectsView.h; sourceTree = "<group>"; };
+		C2AA0C801B69C85A006B3D71 /* EffectsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectsView.m; sourceTree = "<group>"; };
+		C2AA0C8D1B69D3DB006B3D71 /* UIImage+Filtrr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtrr.h"; sourceTree = "<group>"; };
+		C2AA0C8E1B69D3DB006B3D71 /* UIImage+Filtrr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtrr.m"; sourceTree = "<group>"; };
+		C2AA0C8F1B69D3DB006B3D71 /* UIImage+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scale.h"; sourceTree = "<group>"; };
+		C2AA0C901B69D3DB006B3D71 /* UIImage+FiltrrCompositions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FiltrrCompositions.h"; sourceTree = "<group>"; };
+		C2AA0C911B69D3DB006B3D71 /* UIImage+FiltrrCompositions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FiltrrCompositions.m"; sourceTree = "<group>"; };
+		C2AA0C921B69D3DB006B3D71 /* UIImage+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scale.m"; sourceTree = "<group>"; };
 		CE786DB51910477500800637 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +94,7 @@
 		96CFD12F168D308D00BAEEE6 = {
 			isa = PBXGroup;
 			children = (
+				C2AA0C8C1B69D3DB006B3D71 /* Filtrr */,
 				96CFD166168D458A00BAEEE6 /* Demo */,
 				96CFD144168D308D00BAEEE6 /* ImageCropView */,
 				96CFD13D168D308D00BAEEE6 /* Frameworks */,
@@ -135,6 +148,7 @@
 		96CFD166168D458A00BAEEE6 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C2AA0C7E1B69C81B006B3D71 /* EffectsView */,
 				37EE616A1B69BCAE000AFB2B /* background.png */,
 				6B85BF2419F74EA400B7F16A /* FXBlurView */,
 				96CFD145168D308D00BAEEE6 /* Supporting Files */,
@@ -148,6 +162,28 @@
 			);
 			name = Demo;
 			path = ImageCropView;
+			sourceTree = "<group>";
+		};
+		C2AA0C7E1B69C81B006B3D71 /* EffectsView */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA0C7F1B69C847006B3D71 /* EffectsView.h */,
+				C2AA0C801B69C85A006B3D71 /* EffectsView.m */,
+			);
+			name = EffectsView;
+			sourceTree = "<group>";
+		};
+		C2AA0C8C1B69D3DB006B3D71 /* Filtrr */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA0C8D1B69D3DB006B3D71 /* UIImage+Filtrr.h */,
+				C2AA0C8E1B69D3DB006B3D71 /* UIImage+Filtrr.m */,
+				C2AA0C8F1B69D3DB006B3D71 /* UIImage+Scale.h */,
+				C2AA0C901B69D3DB006B3D71 /* UIImage+FiltrrCompositions.h */,
+				C2AA0C911B69D3DB006B3D71 /* UIImage+FiltrrCompositions.m */,
+				C2AA0C921B69D3DB006B3D71 /* UIImage+Scale.m */,
+			);
+			path = Filtrr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +253,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CFD14B168D308D00BAEEE6 /* main.m in Sources */,
+				C2AA0C931B69D3DB006B3D71 /* UIImage+Filtrr.m in Sources */,
+				C2AA0C811B69C85A006B3D71 /* EffectsView.m in Sources */,
 				96CFD14F168D308D00BAEEE6 /* AppDelegate.m in Sources */,
+				C2AA0C951B69D3DB006B3D71 /* UIImage+Scale.m in Sources */,
 				6B85BF2719F74EA400B7F16A /* FXBlurView.m in Sources */,
+				C2AA0C941B69D3DB006B3D71 /* UIImage+FiltrrCompositions.m in Sources */,
 				96CFD158168D308D00BAEEE6 /* ViewController.m in Sources */,
 				37B7A76D1B69CE82006C2070 /* UserInputViewController.m in Sources */,
 				96CFD163168D309800BAEEE6 /* ImageCropView.m in Sources */,

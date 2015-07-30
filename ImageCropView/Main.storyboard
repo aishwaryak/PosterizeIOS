@@ -93,20 +93,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fiz-dT-SWK" firstAttribute="top" secondItem="0wM-B0-3ek" secondAttribute="bottom" constant="44" id="5hX-Au-Ms1"/>
-                            <constraint firstItem="7CI-8s-1wK" firstAttribute="leading" secondItem="zRb-bQ-cEg" secondAttribute="leading" id="7mz-xi-Co9"/>
                             <constraint firstAttribute="trailing" secondItem="0wM-B0-3ek" secondAttribute="trailing" id="K45-uj-EC2"/>
                             <constraint firstItem="0wM-B0-3ek" firstAttribute="leading" secondItem="zRb-bQ-cEg" secondAttribute="leading" id="Pfe-jr-aIN"/>
                             <constraint firstItem="0wM-B0-3ek" firstAttribute="top" secondItem="8Ao-fE-2uf" secondAttribute="bottom" id="TUA-EI-SKA"/>
-                            <constraint firstAttribute="trailing" secondItem="7CI-8s-1wK" secondAttribute="trailing" id="TYO-dC-dag"/>
-                            <constraint firstItem="fiz-dT-SWK" firstAttribute="top" secondItem="7CI-8s-1wK" secondAttribute="bottom" id="iwX-dx-7pk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ePN-Bg-fDd"/>
+                    <navigationItem key="navigationItem" id="ePN-Bg-fDd">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="SUv-4j-4Gw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C7l-pt-ZTT">
+                                <rect key="frame" x="121" y="378" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="CROP ME!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cropBarButtonClick:" destination="dIC-sE-THH" eventType="touchUpInside" id="CAY-U7-LhU"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="camera" destination="aDD-so-hhf" id="wJY-sj-rEE"/>
+                        <outlet property="crop" destination="C7l-pt-ZTT" id="jkc-Rb-Ast"/>
                         <outlet property="gallery" destination="lSV-K5-pfc" id="kjE-wn-wgP"/>
                         <outlet property="imageView" destination="0wM-B0-3ek" id="97K-O3-jYq"/>
                         <outlet property="insta" destination="86v-C2-oog" id="Nis-wz-YVj"/>
+                        <outlet property="measure" destination="m4a-aN-QtV" id="RIu-69-gSu"/>
                         <outlet property="posterize" destination="95k-Jq-ejB" id="ghb-bY-psA"/>
                     </connections>
                 </viewController>
