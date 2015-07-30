@@ -19,6 +19,8 @@
     [super viewDidLoad];
     [_imageView setImage:_image];
     // Do any additional setup after loading the view.
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+
 }
 
 - (void)didReceiveMemoryWarning {
