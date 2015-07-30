@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cHo-VK-Zxn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cHo-VK-Zxn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -32,32 +32,9 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="2" verticalHuggingPriority="2" translatesAutoresizingMaskIntoConstraints="NO" id="0wM-B0-3ek">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="2" verticalHuggingPriority="2" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wM-B0-3ek">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="7CI-8s-1wK">
-                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="P9e-p4-5tm"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem id="Luv-lb-9Iu"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ogY-Rw-0cR"/>
-                                    <barButtonItem id="K4Q-NW-pQb"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ekJ-i6-PpK"/>
-                                    <barButtonItem title="crop" id="KQp-59-ckV">
-                                        <connections>
-                                            <action selector="cropBarButtonClick:" destination="dIC-sE-THH" id="Zg9-ml-0Dh"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VaB-4W-L6w"/>
-                                    <barButtonItem title="save" id="2M4-Qj-rej">
-                                        <connections>
-                                            <action selector="saveBarButtonClick:" destination="dIC-sE-THH" id="r7g-4z-wph"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Posterize" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95k-Jq-ejB">
                                 <rect key="frame" x="131" y="49" width="72" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -88,24 +65,45 @@
                                     <action selector="openBarButtonClick:" destination="dIC-sE-THH" eventType="touchUpInside" id="CD6-bo-WaE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4a-aN-QtV">
+                                <rect key="frame" x="103" y="378" width="87" height="30"/>
+                                <state key="normal" title="POSTERIZE!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setMeasurements:" destination="dIC-sE-THH" eventType="touchUpInside" id="mAe-yt-76l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fiz-dT-SWK" firstAttribute="top" secondItem="0wM-B0-3ek" secondAttribute="bottom" constant="44" id="5hX-Au-Ms1"/>
-                            <constraint firstItem="7CI-8s-1wK" firstAttribute="leading" secondItem="zRb-bQ-cEg" secondAttribute="leading" id="7mz-xi-Co9"/>
                             <constraint firstAttribute="trailing" secondItem="0wM-B0-3ek" secondAttribute="trailing" id="K45-uj-EC2"/>
                             <constraint firstItem="0wM-B0-3ek" firstAttribute="leading" secondItem="zRb-bQ-cEg" secondAttribute="leading" id="Pfe-jr-aIN"/>
                             <constraint firstItem="0wM-B0-3ek" firstAttribute="top" secondItem="8Ao-fE-2uf" secondAttribute="bottom" id="TUA-EI-SKA"/>
-                            <constraint firstAttribute="trailing" secondItem="7CI-8s-1wK" secondAttribute="trailing" id="TYO-dC-dag"/>
-                            <constraint firstItem="fiz-dT-SWK" firstAttribute="top" secondItem="7CI-8s-1wK" secondAttribute="bottom" id="iwX-dx-7pk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ePN-Bg-fDd"/>
+                    <navigationItem key="navigationItem" id="ePN-Bg-fDd">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="SUv-4j-4Gw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C7l-pt-ZTT">
+                                <rect key="frame" x="121" y="378" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="CROP ME!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cropBarButtonClick:" destination="dIC-sE-THH" eventType="touchUpInside" id="CAY-U7-LhU"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="camera" destination="aDD-so-hhf" id="wJY-sj-rEE"/>
+                        <outlet property="crop" destination="C7l-pt-ZTT" id="jkc-Rb-Ast"/>
                         <outlet property="gallery" destination="lSV-K5-pfc" id="kjE-wn-wgP"/>
                         <outlet property="imageView" destination="0wM-B0-3ek" id="97K-O3-jYq"/>
                         <outlet property="insta" destination="86v-C2-oog" id="Nis-wz-YVj"/>
+                        <outlet property="measure" destination="m4a-aN-QtV" id="RIu-69-gSu"/>
                         <outlet property="posterize" destination="95k-Jq-ejB" id="ghb-bY-psA"/>
                     </connections>
                 </viewController>

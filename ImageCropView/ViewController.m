@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIImage+FiltrrCompositions.h"
 
 @interface ViewController ()
 
@@ -22,8 +23,25 @@
 	// Do any additional setup after loading the view, typically from a nib.
     imageCropView.image = [UIImage imageNamed:@"pict.jpeg"];
     imageCropView.controlColor = [UIColor cyanColor];
+    [_crop setHidden:YES];
+    [_measure setHidden:YES];
+    
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+//    _scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(50,50,320,480)];
+//    _scrollView.showsVerticalScrollIndicator=YES;
+//    _scrollView.scrollEnabled=YES;
+//    _scrollView.userInteractionEnabled=YES;
+//    [self.view addSubview:_scrollView];
+//    _scrollView.contentSize = CGSizeMake(320,960);
+//    
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [button addTarget:self  action:@selector(aMethod:) forControlEvents:UIControlEventTouchDown];
+//    [button setTitle:@"Show View" forState:UIControlStateNormal];
+//    button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+//    [_scrollView addSubview:button];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +82,7 @@
     [_posterize setHidden:YES];
     [_gallery setHidden:YES];
     [_insta setHidden:YES];
+    [_crop setHidden:NO];
 //    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
 //    self.navigationItem.leftBarButtonItem = backButton;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
@@ -118,15 +137,91 @@
     }
 }
 
+- (IBAction)effectOne:(id)sender {
+    imageView.image = [image e1];
+}
+
+- (IBAction)effectTwo:(id)sender {
+    imageView.image = [image e2];
+}
+
+- (IBAction)effectThree:(id)sender {
+    imageView.image = [image e3];
+}
+
+- (IBAction)effectFour:(id)sender {
+    imageView.image = [image e4];
+}
+
+- (IBAction)effectFive:(id)sender {
+    imageView.image = [image e5];
+}
+
+
 - (void)ImageCropViewController:(ImageCropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage{
    image = croppedImage;
    imageView.image = croppedImage;
+   
+//    EffectsViewController *con = [[EffectsViewController alloc] initWithImage:image];
+//    con.delegate = self;
+//    [self.navigationController pushViewController:con animated:YES];
+
     
-    [self cropImage :croppedImage];
+    //[self cropImage :croppedImage];
     
    [[self navigationController] popViewControllerAnimated:YES];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+    
+    int x = 0;
+    for (int i = 1; i < 8; i++) {
+//        UIBarButtonItem *button = [[UIBarButtonItem alloc]
+//                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+//                                       target:nil
+//                                       action:nil];
+       // [button setTitle:<#(NSString *)#>]
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, 100, 50)];
+        //[button setTitle:[NSString stringWithFormat:@"Button %d", i] forState:UIControlStateNormal];
+        NSString* aString = [NSString stringWithFormat:@"e%d", i];
+        //button setImage:[image valueForKey:aString]];
+        [button setImage:[image valueForKey:aString] forState:UIControlStateNormal];
+       
+        [button addTarget:self
+                   action:NSSelectorFromString(aString)
+                    forControlEvents:UIControlEventTouchUpInside];
+      // [button setWidth:20];
+        
+        [scrollView addSubview:button];
+        
+       x += button.frame.size.width +10;
+    }
+    
+    scrollView.contentSize = CGSizeMake(x, scrollView.frame.size.height);
+    scrollView.backgroundColor = [UIColor grayColor];
+    [_measure setHidden:NO];
+    [self.view addSubview:scrollView];
 }
 
+- (void)e1{
+    imageView.image = [image e1];
+}
+- (void)e2{
+    imageView.image = [image e2];
+}
+- (void)e3{
+    imageView.image = [image e3];
+}
+- (void)e4{
+    imageView.image = [image e4];
+}
+- (void)e5{
+    imageView.image = [image e5];
+}
+- (void)e6{
+    imageView.image = [image e6];
+}
+- (void)e7{
+    imageView.image = [image e7];
+}
 
 - (void) cropImage:(UIImage *)croppedImage{
     
@@ -276,5 +371,7 @@
     if (image != nil){
         UIImageWriteToSavedPhotosAlbum(image, self ,  @selector(thisImage:hasBeenSavedInPhotoAlbumWithError:usingContextInfo:), nil);
     }
+}
+- (IBAction)setMeasurements:(id)sender {
 }
 @end
