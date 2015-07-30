@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UserInputViewController.h"
+#import "UIImage+FiltrrCompositions.h"
 
 
 @interface ViewController ()
@@ -29,6 +30,18 @@
     
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+//    _scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(50,50,320,480)];
+//    _scrollView.showsVerticalScrollIndicator=YES;
+//    _scrollView.scrollEnabled=YES;
+//    _scrollView.userInteractionEnabled=YES;
+//    [self.view addSubview:_scrollView];
+//    _scrollView.contentSize = CGSizeMake(320,960);
+//    
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [button addTarget:self  action:@selector(aMethod:) forControlEvents:UIControlEventTouchDown];
+//    [button setTitle:@"Show View" forState:UIControlStateNormal];
+//    button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+//    [_scrollView addSubview:button];
     
     NSLog(@"The newly loadde string is %@ %@",_widthString,_heightString);
 }
@@ -190,30 +203,28 @@
     [self.view addSubview:scrollView];
 }
 
-- (void)ImageCropViewControllerDidCancel:(ImageCropViewController *)controller{
-    imageView.image = image;
-    [[self navigationController] popViewControllerAnimated:YES];
+- (void)e1{
+    imageView.image = [image e1];
+}
+- (void)e2{
+    imageView.image = [image e2];
+}
+- (void)e3{
+    imageView.image = [image e3];
+}
+- (void)e4{
+    imageView.image = [image e4];
+}
+- (void)e5{
+    imageView.image = [image e5];
+}
+- (void)e6{
+    imageView.image = [image e6];
+}
+- (void)e7{
+    imageView.image = [image e7];
 }
 
-- (void)thisImage:(UIImage *)image hasBeenSavedInPhotoAlbumWithError:(NSError *)error usingContextInfo:(void*)ctxInfo {
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail!"
-                                                        message:[NSString stringWithFormat:@"Saved with error %@", error.description]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Succes!"
-                                                                message:@"Saved to camera roll"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-
-    }
-}
 
 - (IBAction)saveBarButtonClick:(id)sender {
     //TODO - uncomment this
@@ -234,7 +245,7 @@
         NSLog(@"UserInputScreen");
         
         UserInputViewController *controller = (UserInputViewController *)segue.destinationViewController;
-        controller.image = image;
+        controller.image = imageView.image;
         //controller.stringForVC2 = @"some string";
         // here you have passed the value //
         
@@ -249,5 +260,6 @@
     return YES;
     
 }
+
 
 @end

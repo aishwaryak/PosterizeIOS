@@ -40,8 +40,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *insta;
 @property (weak, nonatomic) IBOutlet UILabel *posterize;
 @property (strong, nonatomic) IBOutlet UIButton *crop;
-- (IBAction)setMeasurements:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *measure;
+
+@property (weak, nonatomic) IBOutlet UIButton *measure;
 
 
 @property (copy, nonatomic) NSString * widthString;
