@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37B7A76D1B69CE82006C2070 /* UserInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7A76C1B69CE82006C2070 /* UserInputViewController.m */; };
 		37EE616B1B69BCAE000AFB2B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EE616A1B69BCAE000AFB2B /* background.png */; };
 		6B85BF2719F74EA400B7F16A /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85BF2619F74EA400B7F16A /* FXBlurView.m */; };
 		6B85BF2919F74EB400B7F16A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B85BF2819F74EB400B7F16A /* Accelerate.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37B7A76B1B69CE82006C2070 /* UserInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInputViewController.h; sourceTree = "<group>"; };
+		37B7A76C1B69CE82006C2070 /* UserInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInputViewController.m; sourceTree = "<group>"; };
 		37EE616A1B69BCAE000AFB2B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		6B85BF2519F74EA400B7F16A /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		6B85BF2619F74EA400B7F16A /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 				96CFD14D168D308D00BAEEE6 /* AppDelegate.h */,
 				96CFD14E168D308D00BAEEE6 /* AppDelegate.m */,
 				CE786DB51910477500800637 /* Main.storyboard */,
+				37B7A76B1B69CE82006C2070 /* UserInputViewController.h */,
+				37B7A76C1B69CE82006C2070 /* UserInputViewController.m */,
 				96CFD156168D308D00BAEEE6 /* ViewController.h */,
 				96CFD157168D308D00BAEEE6 /* ViewController.m */,
 			);
@@ -215,6 +220,7 @@
 				96CFD14F168D308D00BAEEE6 /* AppDelegate.m in Sources */,
 				6B85BF2719F74EA400B7F16A /* FXBlurView.m in Sources */,
 				96CFD158168D308D00BAEEE6 /* ViewController.m in Sources */,
+				37B7A76D1B69CE82006C2070 /* UserInputViewController.m in Sources */,
 				96CFD163168D309800BAEEE6 /* ImageCropView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

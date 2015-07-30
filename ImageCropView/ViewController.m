@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "UserInputViewController.h"
+
 
 @interface ViewController ()
 
@@ -24,6 +26,8 @@
     imageCropView.controlColor = [UIColor cyanColor];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+    
+    NSLog(@"The newly loadde string is %@ %@",_widthString,_heightString);
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,130 +126,10 @@
    image = croppedImage;
    imageView.image = croppedImage;
     
-    [self cropImage :croppedImage];
+    //[self cropImage :croppedImage];
     
    [[self navigationController] popViewControllerAnimated:YES];
 }
-
-
-- (void) cropImage:(UIImage *)croppedImage{
-    
-    
-    NSLog(@"cutting image");
-    
-    CGSize size = [croppedImage size];
-    
-    CGFloat pageOffset = 0;
-    NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
-    NSString* documentDirectory = [documentDirectories objectAtIndex:0];
-    NSString *pdfFileName = [documentDirectory stringByAppendingPathComponent:@"mypdf.pdf"];
-    UIGraphicsBeginPDFContextToFile(pdfFileName, CGRectZero, nil);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    
-    int a4Height = 11;
-    double a4Width = 8.27;
-    
-    double oldWidth = size.width,oldHeight = size.height;
-    double newWidth=25,newHeight=33; //The size of the poster
-    
-    
-    if(size.height > size.width) {
-        newWidth = size.height;
-        newHeight = size.width;
-    }
-    
-    int totalA4Width = newWidth/a4Width;
-    int totalA4Height = newHeight/a4Height;
-    
-    
-    //imageDivision
-    
-    double loopWidth = oldWidth / totalA4Width;
-    double loopHeight = oldHeight / totalA4Height;
-    
-    
-    double edgeWidth = loopWidth * (totalA4Width - (int) totalA4Width);
-    double edgeHeight = loopHeight * (totalA4Height - (int) totalA4Height);
-    
-    int xStart = 0, yStart = 0, xEnd = (int)(loopWidth), yEnd = (int)(loopHeight);
-    bool isPartWidth = false;
-    bool isPartHeight = false;
-        
-        for(int j = 0; j <= (int) totalA4Height; j++)
-        {
-            for(int i=0; i <= (int) totalA4Width; i++)
-            {
-                isPartWidth = false;
-                isPartHeight = false;
-                
-                xEnd = (int)(loopWidth);
-                yEnd = (int)(loopHeight);
-                
-                if(i == (int) totalA4Width)
-                {
-                    isPartWidth = true;
-                    xEnd = (int)edgeWidth;
-                    //alignment = Image.LEFT;
-                }
-                if(j == (int) totalA4Height)
-                {
-                    isPartHeight = true;
-                    yEnd = (int)edgeHeight;
-                    //alignment = Image.TOP;
-                }
-                xStart = (int)(i * (int)(loopWidth));
-                yStart = (int)(j * (int)(loopHeight));
-                
-                [self makeRectangle :xStart :yStart :xEnd :yEnd :croppedImage];
-                //Todo - write to PDF
-                
-            }
-        }
-
-    
-    //imageDivision
-
-
-
-    UIGraphicsEndPDFContext();
-}
-
-
-
-- (void) makeRectangle:(NSInteger) startX: (NSInteger) startY : (NSInteger) width : (NSInteger) height: (UIImage *) cutImage {
-    
-    UIImageView *cutImageView = [[UIImageView alloc] initWithImage:cutImage];
-    CGSize size = [cutImage size];
-    
-    // Frame location in view to show original image
-    [cutImageView setFrame:CGRectMake(0, 0, size.width, size.height)];
-    
-    // Create rectangle that represents a cropped image
-    // from the middle of the existing image
-    CGRect rect = CGRectMake(startX,startY ,
-                             width, height);
-    
-    // Create bitmap image from original image data,
-    // using rectangle to specify desired crop area
-    CGImageRef imageRef = CGImageCreateWithImageInRect([cutImage CGImage], rect);
-    
-    UIImage *img = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    
-    // Create and show the new image from bitmap data
-    cutImageView = [[UIImageView alloc] initWithImage:img];
-    [cutImageView setFrame:CGRectMake(startX,startY,width,height)];
-    
-    if(cutImageView.image!=nil) {
-        NSLog(@"It should be saved");
-        //792, 1122ß
-       // UIImageWriteToSavedPhotosAlbum(cutImageView.image, self ,  @selector(thisImage:hasBeenSavedInPhotoAlbumWithError:usingContextInfo:), nil);
-        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
-        [cutImageView.image drawInRect:CGRectMake(0, 0, 612,792)];
-    }
-}
-
 
 - (void)ImageCropViewControllerDidCancel:(ImageCropViewController *)controller{
     imageView.image = image;
@@ -273,8 +157,38 @@
 }
 
 - (IBAction)saveBarButtonClick:(id)sender {
-    if (image != nil){
-        UIImageWriteToSavedPhotosAlbum(image, self ,  @selector(thisImage:hasBeenSavedInPhotoAlbumWithError:usingContextInfo:), nil);
-    }
+    //TODO - uncomment this
+    //if (image != nil){
+    //    UIImageWriteToSavedPhotosAlbum(image, self ,  @selector(thisImage:hasBeenSavedInPhotoAlbumWithError:usingContextInfo:), nil);
+    //}
 }
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    NSLog(@" From view controller The segue identifer %@",segue.identifier);
+    
+    if([segue.identifier isEqualToString:@"UserInputScreen"])
+    {
+        NSLog(@"UserInputScreen");
+        
+        UserInputViewController *controller = (UserInputViewController *)segue.destinationViewController;
+        controller.image = image;
+        //controller.stringForVC2 = @"some string";
+        // here you have passed the value //
+        
+    }
+    
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+     NSLog(@" From view controller should perform segue");
+    
+    return YES;
+    
+}
+
 @end

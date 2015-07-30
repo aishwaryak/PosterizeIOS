@@ -35,4 +35,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *insta;
 @property (weak, nonatomic) IBOutlet UILabel *posterize;
 
+@property (copy, nonatomic) NSString * widthString;
+@property (copy, nonatomic) NSString * heightString;
+
+
 @end
